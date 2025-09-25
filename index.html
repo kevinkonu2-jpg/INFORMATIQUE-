@@ -2,23 +2,31 @@
 <html lang="fr">
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5LQQDKSWRT"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-5LQQDKSWRT');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LQQDKSWRT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5LQQDKSWRT');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LES SECRETS DE L'INFORMATIQUE - Maîtrisez l'Art du Numérique</title>
     <meta name="description" content="Découvrez les techniques secrètes des professionnels de l'informatique. E-book complet avec astuces, stratégies et méthodes pour exceller dans le monde numérique.">
+    <meta name="author" content="Kévin Konu">
+    <meta name="keywords" content="informatique, formation informatique, livre informatique, secrets informatique, astuces ordinateur, Togo informatique, formation numérique">
+    <meta name="robots" content="index, follow">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+    
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -43,6 +51,7 @@
             width: 100%;
             z-index: 1000;
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
         }
 
         nav {
@@ -68,11 +77,29 @@
             text-decoration: none;
             color: #3b3939;
             font-weight: 500;
-            transition: color 0.3s;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
         .nav-links a:hover {
             color: #4f46e5;
+            transform: translateY(-2px);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background-color: #4f46e5;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+            left: 0;
         }
 
         /* Hero Section */
@@ -105,12 +132,14 @@
             font-size: 3.5rem;
             margin-bottom: 1rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease;
         }
 
         .hero-subtitle {
             font-size: 1.3rem;
             margin-bottom: 2rem;
             opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
         }
 
         .cta-primary {
@@ -122,20 +151,31 @@
             text-decoration: none;
             font-weight: bold;
             font-size: 1.1rem;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            animation: pulse 2s infinite;
+            animation: pulse 2s infinite, fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.05); }
             100% { transform: scale(1); }
-        }
-
-        .cta-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
         }
 
         /* Book Preview Section */
@@ -153,18 +193,36 @@
 
         .book-cover {
             text-align: center;
+            perspective: 1000px;
         }
 
         .book-cover img {
             max-width: 300px;
             border-radius: 15px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-            transform: perspective(1000px) rotateY(-15deg);
-            transition: transform 0.3s;
+            transition: all 0.3s ease;
+            animation: floatBook 6s ease-in-out infinite;
         }
 
         .book-cover img:hover {
-            transform: perspective(1000px) rotateY(0deg) scale(1.05);
+            transform: rotateY(15deg) rotateX(5deg) scale(1.1);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Animation flottante pour la couverture du livre dans les 4 sens */
+        @keyframes floatBook {
+            0%, 100% { 
+                transform: translateY(0px) translateX(0px) rotateY(-5deg);
+            }
+            25% { 
+                transform: translateY(-10px) translateX(5px) rotateY(0deg);
+            }
+            50% { 
+                transform: translateY(0px) translateX(10px) rotateY(5deg);
+            }
+            75% { 
+                transform: translateY(10px) translateX(5px) rotateY(0deg);
+            }
         }
 
         .book-details h2 {
@@ -191,6 +249,12 @@
             background: #f8f9fa;
             border-radius: 10px;
             border-left: 4px solid #4f46e5;
+            transition: all 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
 
         .feature h3 {
@@ -222,6 +286,12 @@
             padding: 2rem;
             border-radius: 15px;
             backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .toc-chapter:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
         }
 
         .chapter-number {
@@ -253,12 +323,14 @@
             width: 250px;
             height: 250px;
             border-radius: 50%;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: white;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .author-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .author-bio h2 {
@@ -292,6 +364,12 @@
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
 
         .testimonial::before {
@@ -343,11 +421,62 @@
             margin: 1rem 0;
         }
 
+        /* Amélioration du décompteur avec cadre visible et meilleure police */
+        .countdown-container {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px auto;
+            max-width: 400px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            }
+            to {
+                box-shadow: 0 10px 30px rgba(255, 107, 107, 0.5);
+            }
+        }
+
+        .countdown-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        #countdown {
+            font-family: 'Courier New', monospace;
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            min-width: 200px;
+        }
+
+        .sales-counter {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 1rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
         .guarantee {
             background: rgba(255, 255, 255, 0.1);
             padding: 1rem;
             border-radius: 10px;
             margin-top: 2rem;
+            border: 2px solid #4f46e5;
         }
 
         /* FAQ */
@@ -368,6 +497,11 @@
             border: 1px solid #e1e5e9;
             border-radius: 10px;
             overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .faq-question {
@@ -375,17 +509,45 @@
             padding: 1.5rem;
             font-weight: bold;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
         .faq-question:hover {
             background: #e9ecef;
         }
 
+        .faq-question::after {
+            content: '+';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active::after {
+            transform: translateY(-50%) rotate(45deg);
+        }
+
         .faq-answer {
             padding: 1.5rem;
             background: white;
             border-top: 1px solid #e1e5e9;
+            display: none;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                max-height: 0;
+            }
+            to {
+                opacity: 1;
+                max-height: 200px;
+            }
         }
 
         /* Footer */
@@ -406,11 +568,80 @@
         .footer-links a {
             color: white;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: all 0.3s ease;
         }
 
         .footer-links a:hover {
             color: #4f46e5;
+            transform: translateY(-2px);
+        }
+
+        /* Bouton WhatsApp flottant avec logo */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            animation: whatsapp-pulse 2s infinite;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+        }
+
+        @keyframes whatsapp-pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Stickers de message avec logo WhatsApp */
+        .message-stickers {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            z-index: 999;
+        }
+
+        .message-sticker {
+            background: rgba(37, 211, 102, 0.9);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            animation: slideInRight 0.5s ease;
+            position: relative;
+        }
+
+        .message-sticker::before {
+            content: '📱';
+            margin-right: 5px;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         /* Responsive */
@@ -419,49 +650,59 @@
             .author-content {
                 grid-template-columns: 1fr;
                 text-align: center;
+                gap: 2rem;
             }
-
+            
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
+                line-height: 1.2;
             }
-
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
             .nav-links {
                 display: none;
+            }
+            
+            .cta-primary {
+                padding: 15px 30px;
+                font-size: 1rem;
+            }
+            
+            .book-cover img {
+                max-width: 250px;
+            }
+
+            #countdown {
+                font-size: 1.8rem;
+                min-width: 180px;
+            }
+
+            .countdown-container {
+                max-width: 300px;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+
+            #countdown {
+                font-size: 1.5rem;
+                min-width: 160px;
             }
         }
     </style>
 </head>
-<!-- AJOUTER AVANT </body> -->
-<a href="https://wa.me/22892598260?text=Bonjour%20Kévin,%20je%20suis%20intéressé%20par%20votre%20livre%20'Les%20Secrets%20de%20l'Informatique'" 
-   class="whatsapp-float" 
-   target="_blank"
-   aria-label="Commander le livre sur WhatsApp - Contactez Kévin Konu">
-   💬
-</a>
 
-<style>
-.whatsapp-float {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #25D366;
-    color: white;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    text-decoration: none;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-    z-index: 1000;
-    animation: pulse 2s infinite;
-}
-.whatsapp-float:hover {
-    transform: scale(1.1);
-}
-</style>
 <body>
     <!-- Header -->
     <header>
@@ -493,7 +734,7 @@
         <div class="container">
             <div class="preview-grid">
                 <div class="book-cover">
-                    <img src="https://i.postimg.cc/MZ55wKz4/couverture.webp" alt="Couverture du livre">
+                    <img src="https://i.postimg.cc/MZ55wKz4/couverture.webp" alt="Couverture du livre Les Secrets de l'Informatique">
                 </div>
                 <div class="book-details">
                     <h2>Un Guide Complet pour Maîtriser l'Informatique de A à Z</h2>
@@ -566,7 +807,7 @@
         <div class="container">
             <div class="author-content">
                 <div class="author-photo">
-                    <img src="https://videos.openai.com/vg-assets/assets%2Ftask_01k5ahq3gvfhgts84rrg69z9kb%2F1758069610_img_1.webp?st=2025-09-16T22%3A45%3A52Z&se=2025-09-22T23%3A45%3A52Z&sks=b&skt=2025-09-16T22%3A45%3A52Z&ske=2025-09-22T23%3A45%3A52Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=b4ab33b8-2ad4-40af-8ed0-a2b350b6603c&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=BU7pOwv8AxXSCx6dEuDSj7DjEOrS6rLB%2BEiyxV7qSyg%3D&az=oaivgprodscus" alt="Kevin Konu" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                    <img src="https://videos.openai.com/vg-assets/assets%2Ftask_01k5ahq3gvfhgts84rrg69z9kb%2F1758069610_img_1.webp?st=2025-09-16T22%3A45%3A52Z&se=2025-09-22T23%3A45%3A52Z&sks=b&skt=2025-09-16T22%3A45%3A52Z&ske=2025-09-22T23%3A45%3A52Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=b4ab33b8-2ad4-40af-8ed0-a2b350b6603c&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=BU7pOwv8AxXSCx6dEuDSj7DjEOrS6rLB%2BEiyxV7qSyg%3D&az=oaivgprodscus" alt="Kevin Konu - Auteur du livre Les Secrets de l'Informatique">
                 </div>
                 <div class="author-bio">
                     <h2>À Propos de l'Auteur</h2>
@@ -620,23 +861,27 @@
                 <div class="new-price">6 000 FCFA</div>
                 <p style="margin-bottom: 2rem;">⏰ Offre limitée - Économisez 34 000 FCFA</p>
                 
-                <a href="https://wa.me/22892598260?text=Bonjour%20Kevin,%20je%20veux%20acheter%20le%20livre%20'Les%20Secrets%20de%20l'Informatique'%20à%206000%20FCFA" 
-   class="cta-primary" 
-   style="display: block; margin-bottom: 2rem;"
-   target="_blank">
-   📱 Acheter par WhatsApp - 6000 FCFA
-</a>
+                <div class="countdown-container">
+                    <div class="countdown-title">🔥 Offre spéciale se termine dans :</div>
+                    <div id="countdown">24:00:00</div>
+                </div>
                 
-                <div class="guarantee" style="border: 2px solid #4f46e5; background: rgba(255,255,255,0.15);">
-    <h3>✅ Garantie 30 Jours Satisfait ou Remboursé</h3>
-    <p>Si le livre ne vous apporte pas de valeur, je vous rembourse intégralement !</p>
-</div>
+                <div class="sales-counter">
+                    <p>🔥 <strong id="sales-counter">127 exemplaires</strong> vendus cette semaine</p>
+                </div>
+                
+                <a href="https://wa.me/22892598260?text=Bonjour%20Kévin,%20je%20suis%20intéressé%20par%20votre%20livre%20'Les%20Secrets%20de%20l'Informatique'" class="cta-primary" style="margin-top: 2rem;">
+                    📱 Commander sur WhatsApp
+                </a>
+                
+                <div class="guarantee">
+                    <h3 style="margin-bottom: 0.5rem;">✅ Garantie 30 Jours "Satisfait ou Remboursé"</h3>
+                    <p style="margin: 0;">Si le livre ne vous apporte pas de valeur immédiate, je vous rembourse intégralement sans aucune question !</p>
+                </div>
             </div>
         </div>
     </section>
-<div style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 10px; margin-top: 1rem;">
-    <p>🔥 <strong>127 exemplaires</strong> vendus cette semaine</p>
-</div>
+
     <!-- FAQ -->
     <section class="faq" id="faq">
         <div class="container">
@@ -678,13 +923,28 @@
                 <a href="#confidentialite">Confidentialité</a>
                 <a href="#mentions">Mentions légales</a>
             </div>
-            <p>&copy; 2024 Les Secrets de l'Informatique. Tous droits réservés.</p>
+            <p>&copy; 2025 Les Secrets de l'Informatique. Tous droits réservés.</p>
             <p>📧 entreprise193@gmail.com | 📱 WhatsApp: +228 92 59 82 60</p>
         </div>
     </footer>
 
+    <!-- Stickers de message avec WhatsApp -->
+    <div class="message-stickers">
+        <div class="message-sticker">Marie vient de commander !</div>
+        <div class="message-sticker" style="animation-delay: 2s;">Paul a téléchargé le livre</div>
+        <div class="message-sticker" style="animation-delay: 4s;">Sophie recommande à ses amis</div>
+    </div>
+
+    <!-- Bouton WhatsApp flottant -->
+    <a href="https://wa.me/22892598260?text=Bonjour%20Kévin,%20je%20suis%20intéressé%20par%20votre%20livre%20'Les%20Secrets%20de%20l'Informatique'" 
+       class="whatsapp-float" 
+       target="_blank"
+       aria-label="Commander le livre sur WhatsApp - Contactez Kévin Konu">
+       📱
+    </a>
+
     <script>
-        // Smooth scrolling
+        // Navigation fluide
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -698,25 +958,29 @@
             });
         });
 
-        // FAQ Toggle
+        // FAQ Toggle amélioré
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', function() {
                 const answer = this.nextElementSibling;
                 const isVisible = answer.style.display === 'block';
                 
-                // Hide all answers
+                // Fermer toutes les réponses
                 document.querySelectorAll('.faq-answer').forEach(ans => {
                     ans.style.display = 'none';
                 });
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    q.classList.remove('active');
+                });
                 
-                // Show current answer if it wasn't visible
+                // Ouvrir la réponse actuelle si elle était fermée
                 if (!isVisible) {
                     answer.style.display = 'block';
+                    this.classList.add('active');
                 }
             });
         });
 
-        // Animation on scroll
+        // Animation au scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -731,12 +995,98 @@
             });
         }, observerOptions);
 
-        // Observe elements for animation
+        // Observer les éléments pour l'animation
         document.querySelectorAll('.feature, .toc-chapter, .testimonial').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'all 0.6s ease';
             observer.observe(el);
+        });
+
+        // Compteur de ventes dynamique
+        function updateSales() {
+            const base = 127;
+            const now = new Date();
+            const extra = Math.floor(now.getHours() / 2) + Math.floor(Math.random() * 5);
+            document.getElementById('sales-counter').textContent = (base + extra) + ' exemplaires';
+        }
+
+        // Compteur temps réel amélioré
+        function startCountdown() {
+            const endTime = new Date();
+            endTime.setDate(endTime.getDate() + 3);
+            endTime.setHours(23, 59, 59, 999);
+            
+            function update() {
+                const now = new Date();
+                const diff = endTime - now;
+                
+                if (diff > 0) {
+                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                    
+                    document.getElementById('countdown').textContent = 
+                        `${days}j ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                } else {
+                    document.getElementById('countdown').textContent = "EXPIRÉ";
+                }
+            }
+            
+            update();
+            setInterval(update, 1000);
+        }
+
+        // Confirmation WhatsApp
+        document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if(!confirm('🎉 Excellent choix ! Vous allez être redirigé vers WhatsApp pour finaliser votre commande. Cliquez sur "OK" pour continuer.')) {
+                    e.preventDefault();
+                }
+            });
+        });
+
+        // Animation des stickers de message
+        function animateMessageStickers() {
+            const stickers = document.querySelectorAll('.message-sticker');
+            stickers.forEach((sticker, index) => {
+                setTimeout(() => {
+                    sticker.style.display = 'block';
+                    setTimeout(() => {
+                        sticker.style.display = 'none';
+                    }, 3000);
+                }, index * 6000);
+            });
+            
+            // Répéter l'animation
+            setTimeout(animateMessageStickers, stickers.length * 6000);
+        }
+
+        // Effet de parallaxe léger sur le header
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const header = document.querySelector('header');
+            
+            if (scrolled > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.15)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Initialisation au chargement
+        document.addEventListener('DOMContentLoaded', function() {
+            updateSales();
+            startCountdown();
+            animateMessageStickers();
+            
+            // Masquer initialement les stickers
+            document.querySelectorAll('.message-sticker').forEach(sticker => {
+                sticker.style.display = 'none';
+            });
         });
     </script>
 </body>
