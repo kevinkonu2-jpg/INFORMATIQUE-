@@ -10,7 +10,45 @@
       gtag('js', new Date());
       gtag('config', 'G-5LQQDKSWRT');
     </script>
-    
+    <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'VOTRE_PIXEL_ID_ICI'); // REMPLACER par votre vrai ID
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=VOTRE_PIXEL_ID_ICI&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+<!-- Facebook Domain Verification -->
+<meta name="facebook-domain-verification" content="votre_code_verification_ici" /><!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'VOTRE_PIXEL_ID_ICI'); // REMPLACER par votre vrai ID
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=VOTRE_PIXEL_ID_ICI&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+<!-- Facebook Domain Verification -->
+<meta name="facebook-domain-verification" content="votre_code_verification_ici" />
     <!-- Meta tags essentiels -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1312,6 +1350,49 @@
             </div>
         </div>
     </section>
+<!-- Section Preuve Sociale - AJOUTER ICI -->
+<section class="social-proof">
+    <div class="container">
+        <h2 style="text-align: center; margin-bottom: 3rem; color: white;">Ils Ont Déjà Transformé Leur Vie Numérique</h2>
+        <div class="proof-grid">
+            <div class="proof-item">
+                <div class="proof-icon">🎓</div>
+                <div class="proof-text">
+                    <strong>500+</strong><br>Lecteurs Satisfaits
+                </div>
+            </div>
+            <div class="proof-item">
+                <div class="proof-icon">⭐</div>
+                <div class="proof-text">
+                    <strong>4.9/5</strong><br>Note Moyenne
+                </div>
+            </div>
+            <div class="proof-item">
+                <div class="proof-icon">🚀</div>
+                <div class="proof-text">
+                    <strong>97%</strong><br>Recommandent le Livre
+                </div>
+            </div>
+            <div class="proof-item">
+                <div class="proof-icon">💼</div>
+                <div class="proof-text">
+                    <strong>89%</strong><br>Améliorent leur Productivité
+                </div>
+            </div>
+        </div>
+        
+        <!-- Logos médias - AJOUTER après proof-grid -->
+        <div class="media-logos">
+            <p style="text-align: center; margin: 2rem 0 1rem; opacity: 0.8; font-size: 0.9rem;">Recommandé par :</p>
+            <div class="logos-grid">
+                <span>📰 TechMag Togo</span>
+                <span>🎤 Radio Tech+</span>
+                <span>💻 Startup Africa</span>
+                <span>🌟 Digital Academy</span>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- Section prix avec décompteur ultra-optimisé -->
     <section class="pricing" id="commande">
@@ -1331,11 +1412,12 @@
                     <p>🔥 <strong id="sales-counter">57 exemplaires</strong> vendus cette semaine</p>
                 </div>
                 
-                <a href="https://wa.me/22892598260?text=Bonjour%20Kévin,%20je%20suis%20intéressé%20par%20votre%20livre%20'Les%20Secrets%20de%20l'Informatique'" 
-                   class="cta-whatsapp" 
-                   aria-label="Commander le livre via WhatsApp">
-                    📱 Commander sur WhatsApp
-                </a>
+                <a href="https://wa.me/22892598260?text=Bonjour%20Kévin%20Konu,%20je%20souhaite%20commander%20votre%20livre%20'Les%20Secrets%20de%20l'Informatique'%20au%20prix%20de%203500%20FCFA.%20Comment%20procéder%20pour%20recevoir%20mon%20exemplaire%20?" 
+   class="cta-whatsapp" 
+   onclick="trackConversion('whatsapp_primary')"
+   aria-label="Commander le livre Les Secrets de l'Informatique au prix de 3500 FCFA via WhatsApp">
+    🚀 COMMANDER MAINTENANT - 3 500 FCFA ✅
+</a>
                 
                 <div class="guarantee">
                     <h3 style="margin-bottom: 0.5rem;">✅ Garantie 30 Jours "Satisfait ou Remboursé"</h3>
